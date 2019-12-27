@@ -170,6 +170,27 @@ void printMap() {
 	} fclose(FPRead);
 }
 
+/*=============== Random Dadu ===============*/
+int randomDadu(int angkaDadu){
+	int i;
+	srand(time(NULL));
+	
+	gotoxy(127,25);printf("TEKAN ENTER UNTUK MERANDOM");
+	gotoxy(127,26);printf("----------------------------");
+	gotoxy(140,25);getch();
+	for(i=0;i<10;i++){
+		gotoxy(127,25);printf("DADU KAMU SEDANG DI RANDOM");
+		gotoxy(127,26);printf("----------------------------");
+		angkaDadu = (rand()%6)+1;
+		showDadu(angkaDadu);Sleep(200);
+	}
+	for(i=0; i<10; i++){
+		setcolor(15);gotoxy(128,38);printf("KAMU MENDAPAT ANGKA DADU %d",angkaDadu);Sleep(100);
+		setcolor(9);gotoxy(128,38);printf("KAMU MENDAPAT ANGKA DADU %d",angkaDadu);Sleep(100);
+	}
+	return (angkaDadu);
+}
+
 void gamePlay() {
 	printf("program : goras.exe; description : ludo games; author :  mochamad nauval dwisatya & laras; version/date : 1 / 22.12.2019; compiler : dev c++; jtk polban 2019.\n  ");
 	user.symbol = "X";
@@ -202,11 +223,6 @@ void gamePlay() {
 	gotoxy(49,26);printf("X X");
 	gotoxy(49,25);printf("X X");
 	
-	//dadu
-	gotoxy(108,25);printf("Roll The Dice!");
-	gotoxy(107,26);printf("----------------");
-	//gotoxy(122,25);getche();
-	
 	/* =========== GAMEPLAY ===========*/
 	srand (time(NULL));
 	int r,i;
@@ -221,23 +237,8 @@ void gamePlay() {
 			
 			giliran = true;
 		}*/
-		gotoxy(108,25);printf("Roll The Dice!");
-		gotoxy(122,25);getch();
-		for (i=0; i<10; i++) {
-			gotoxy(108,25);printf("Dice Rolling! ");
-			r = rand() % 7;
-			showDadu(r);
-			gotoxy(115,37);printf("%d",r);
-			Sleep(300);
-		}
-		for (i=0; i<10; i++) {
-			setcolor(15);gotoxy(107,38);printf("YOU GOT %d",r);
-			Sleep(100);
-			setcolor(9);gotoxy(107,38);printf("YOU GOT %d",r);
-			Sleep(100);
-		}
-		//gotoxy(122,25);getch();
-		//r = 50;
+		int angkaDadu = 0;
+		angkaDadu = randomDadu(angkaDadu);
 		Sleep(1000);
 		int btsB,btsP;
 		btsB = 21;
