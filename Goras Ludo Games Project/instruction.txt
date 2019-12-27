@@ -1,0 +1,25 @@
+==============================================================
+CARA BERMAIN
+==============================================================
+1. Pertama pilih menu Mulai Bermain dengan memasukkan angka .
+2. Lalu pilih berapa pemain yang akan bermain.
+3. Giliran bermain dipilih secara acak.
+4. Untuk mengocok dadu tekan enter.
+5. Anda harus mendapat angka 6 pada dadu jika ingin
+   mengeluarkan bidak dari homebase.
+6. Jika sudah ada bidak yang keluar dan masih ada bidak
+   pada homebase maka anda akan diberi pilihan untuk
+   mengeluarkan bidak atau melanjutkan permainan.
+7. Jika ada beberapa bidak yang sudah keluar sesudah
+   mengocok dadu anda akan diberi pilihan bidak mana yang
+   akan dijalankan.
+8. Jika bidak anda menimpa bidak musuh(bidak musuh lebih
+   dulu berada pada petak tsb) maka bidak musuh akan kembali
+   ke homebase
+9. Jika anda mendapat angka 6 pada dadu sebanyak 3x maka
+   bidak anda yang paling dekat dengan homebase akan masuk
+   ke homebase
+10. Untuk dapat masuk ke lintasan kemenangan (beberapa petak sebelum tamat) bidak anda harus
+    melewati  putaran penuh(kembali ke awal petak saat anda keluar dari homebase).
+11. Anda dapat memenangkan permainan jika semua bidak anda() telah memasuki petak surga.
+
