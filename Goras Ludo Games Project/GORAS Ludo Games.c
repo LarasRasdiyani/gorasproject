@@ -245,7 +245,7 @@ void mainMenu() { //main menu
 	}
 } //end main menu
 
-/*=============== Pick Player ===============*/
+/*=============== Select Player ===============*/
 void selectPlayer() { //how many player
 	system("CLS");
 	header();
