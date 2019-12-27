@@ -278,11 +278,11 @@ void selectPlayer() { //how many player
 	gotoxy(73,27);printf("============================");
 	gotoxy(70,33);printf("Masukkan angka yang akan anda tuju = ");scanf("%d", &input);
 	switch(input){
-		case 1 : system("CLS");newGames();
+		case 1 : system("CLS");gamePlay();
 				 break;
-		case 2 : system("CLS");newGames();
+		case 2 : system("CLS");gamePlay();
 				 break;
-		case 3 : system("CLS");newGames();
+		case 3 : system("CLS");gamePlay();
 				 break;
 		case 4 : system("CLS");mainMenu();
 				 break;
