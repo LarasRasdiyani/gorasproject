@@ -171,8 +171,8 @@ void printMap() {
 }
 
 /*=============== Random Dadu ===============*/
-int randomDadu(int angkaDadu){
-	int i;
+int randomDadu(){
+	int angkaDadu,i;
 	srand(time(NULL));
 	
 	gotoxy(127,25);printf("TEKAN ENTER UNTUK MERANDOM");
@@ -234,11 +234,10 @@ void gamePlay() {
 	while (!gameIsOver) {
 		/*giliran = cek_player();
 		while (!giliranUdah) {
-			
 			giliran = true;
 		}*/
 		int angkaDadu = 0;
-		angkaDadu = randomDadu(angkaDadu);
+		angkaDadu = randomDadu();
 		Sleep(1000);
 		int btsB,btsP;
 		btsB = 21;
