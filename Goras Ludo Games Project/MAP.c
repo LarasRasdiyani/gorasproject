@@ -194,6 +194,9 @@ int randomDadu(){
 void gamePlay() {
 	printf("program : goras.exe; description : ludo games; author :  mochamad nauval dwisatya & laras; version/date : 1 / 22.12.2019; compiler : dev c++; jtk polban 2019.\n  ");
 	user.symbol = "X";
+	botq.namabot = "QuickBot";
+	botk.namabot = "KillerBot";
+	botf.namabot = "FlowBot";
 	setcolor(10);
 	printMap();
 	//goras
@@ -203,9 +206,6 @@ void gamePlay() {
 	playerStartPoint();
 	
 	setcolor(9);
-	gotoxy(43,4);printf("================");
-	gotoxy(43,5);printf("%s TURN",user.nama);
-	gotoxy(43,6);printf("================");
 	
 	//playername
 	gotoxy(25,9);printf("%s",user.nama);
@@ -223,6 +223,11 @@ void gamePlay() {
 	gotoxy(49,26);printf("X X");
 	gotoxy(49,25);printf("X X");
 	
+	//dadu
+	gotoxy(108,25);printf("Roll The Dice!");
+	gotoxy(107,26);printf("----------------");
+	//gotoxy(122,25);getche();
+	
 	/* =========== GAMEPLAY ===========*/
 	srand (time(NULL));
 	int r,i;
@@ -230,18 +235,67 @@ void gamePlay() {
 	bool gameIsOver = false;
 	ta = 29;
 	gb = 21;
-	
+	int turn=1;
+	botq.symbol = "Q";
+	botk.symbol = "K";
+	botf.symbol = "F";
+	user.p_x = 29;
+	user.p_y = 21;
+	botk.p_x = 53;
+	botk.p_y = 13;
+	botq.p_x = 69;
+	botq.p_y = 25;
+	botf.p_x = 45;
+	botf.p_y = 33;
+	char *bidak;
+	char *whos;
+		
 	while (!gameIsOver) {
-		/*giliran = cek_player();
-		while (!giliranUdah) {
-			giliran = true;
-		}*/
-		int angkaDadu = 0;
-		angkaDadu = randomDadu();
+		if (turn==1) {
+			bidak = user.symbol;
+			whos = user.nama;
+			ta = user.p_x;
+			gb = user.p_y;
+		}
+		if (turn==2) {
+			bidak = botk.symbol;
+			whos = botk.nama;
+			ta = botk.p_x;
+			gb = botk.p_y;
+		}
+		if (turn==3) {
+			bidak = botq.symbol;
+			whos = botq.nama;
+			ta = botq.p_x;
+			gb = botq.p_y;
+		}
+		if (turn==4) {
+			bidak = botf.symbol;
+			whos = botf.nama;
+			ta = botf.p_x;
+			gb = botf.p_y;
+		}	
+		gotoxy(43,4);printf("================");
+		gotoxy(43,5);printf("%s TURN",whos);
+		gotoxy(43,6);printf("================");
+		gotoxy(108,25);printf("Roll The Dice!");
+		gotoxy(122,25);getch();
+		for (i=0; i<10; i++) {
+			gotoxy(108,25);printf("Dice Rolling! ");
+			r = rand() % 7;
+			showDadu(r);
+			gotoxy(115,37);printf("%d",r);
+			Sleep(300);
+		}
+		for (i=0; i<10; i++) {
+			setcolor(15);gotoxy(107,38);printf("YOU GOT %d",r);
+			Sleep(100);
+			setcolor(9);gotoxy(107,38);printf("YOU GOT %d",r);
+			Sleep(100);
+		}
+		//gotoxy(122,25);getch();
+		//r = 50;
 		Sleep(1000);
-		int btsB,btsP;
-		btsB = 21;
-		btsP = 29;
 		for (i=0; i<r; i++) { //DONE
 			bool udah = false;
 			gotoxy(ta,gb);printf("  ");
@@ -317,10 +371,30 @@ void gamePlay() {
 				ta = ta + 4;
 				udah = true;
 			}
-			gotoxy(ta,gb);printf("%s1",user.symbol);
+			gotoxy(ta,gb);printf("%s1",bidak);
 			Sleep(800);
+			if (turn==1) {
+				user.p_x = ta;
+				user.p_y = gb;
+			}
+			if (turn==2) {
+				botk.p_x = ta;
+				botk.p_y = gb;
+			}
+			if (turn==3) {
+				botq.p_x = ta;
+				botq.p_y = gb;
+			}
+			if (turn==4) {
+				botf.p_x = ta;
+				botf.p_y = gb;
+			}
 			gotoxy(130,4);printf("X = %d",ta);
 			gotoxy(130,5);printf("Y = %d",gb);
+		}
+		turn+=1;
+		if(turn == 5){
+			turn = 1;
 		}
 	}
 }
