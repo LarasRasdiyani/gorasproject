@@ -19,6 +19,8 @@ void isGameOver();
 void playerStartPoint();
 void printMap();
 void isiNama();
+void gameOverWords();
+void musik();
 
 /* =============== STRUCT =============== */
 struct player {
@@ -38,6 +40,7 @@ struct player {
 /*=============== Halaman Utama ===============*/
 int main() {
 	fullScreen(); //call fullscreen module
+	musik();
 	header(); //header module
 	intro(); //intro module
 	
@@ -69,6 +72,10 @@ void setcolor(unsigned short color) {
 	HANDLE hCon = GetStdHandle(STD_OUTPUT_HANDLE);
 	SetConsoleTextAttribute(hCon,color);
 } // Merubah Warna Teks Pada C++ https://49012032sehatsempurna.wordpress.com/2012/04/06/merubah-warna-teks-pada-c/
+
+void musik() {
+	PlaySound(TEXT("soundtrack.wav"), NULL, SND_FILENAME|SND_LOOP|SND_ASYNC);
+}
 
 /*=============== KOCOK DADU ===============*/
 void showDadu(short angka) {
@@ -682,6 +689,7 @@ void gamePlay() {
 					if (r == 0) {
 						r = 6;
 					}
+					//r=1;
 					showDadu(r);
 //					gotoxy(115,37);printf("%d",r);
 					Sleep(200);
@@ -1217,7 +1225,7 @@ void gamePlay() {
 					}
 				} //end loop
 				
-				//Jalur Istimewa
+				//Jalur Istimewa user
 				if (turn==1 && gx==25 && gy==23 && !udah) {
 					gx = gx + 4;
 					udah = true;
@@ -1260,7 +1268,7 @@ void gamePlay() {
 					udah = true;
 				}
 				
-				//Jalur Istimewa
+				//Jalur Istimewa botk
 				if (turn==2 && gx==49 && gy==9 && !udah) {
 					gy = gy + 2;
 					udah = true;
@@ -1303,7 +1311,7 @@ void gamePlay() {
 					udah = true;
 				}
 				
-				//Jalur Istimewa
+				//Jalur Istimewa botq
 				if (turn==3 && gx==77 && gy==23 && !udah) {
 					gx = gx - 4;
 					udah = true;
@@ -1346,7 +1354,7 @@ void gamePlay() {
 					udah = true;
 				}
 				
-				//Jalur Istimewa
+				//Jalur Istimewa botf
 				if (turn==4 && gx==49 && gy==37 && !udah) {
 					gy = gy - 2;
 					udah = true;
@@ -1570,7 +1578,7 @@ void gamePlay() {
 		
 		//cek apakah user kalah/menang.
 		if (user.gameover==1) {
-			gameOverWord();
+			gameOverWords();
 		}
 		if (user.finish==4) {
 			winnerPage();
